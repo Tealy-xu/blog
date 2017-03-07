@@ -62,24 +62,29 @@ class CategoryController extends CommonController
     public function store(Request $request)
     {
         //添加分类提交方法
-        $input = Input::all();
+        $input = Input::except('_token');
 
         $rules = [
             'cate_name'=>'required',
         ];
 
         $message = [
-            'password.required'=>'分类名称不能为空',
+            'cate_name.required'=>'分类名称不能为空',
         ];
 
         $validator = Validator::make($input, $rules, $message);
-        if($validator->passes()){
-
+        if( $validator->passes() ){
+            $res = Category::create($input);
+            if($res){
+                return redirect('admin/category');
+            }else{
+                return back()->with('errors', '添加失败');
+            }
         }else{
-            return back()->with($validator);
+            return back()->withErrors($validator);
         }
 
-        dd($input);
+
     }
 
     /**

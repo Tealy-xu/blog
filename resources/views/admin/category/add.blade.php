@@ -31,11 +31,11 @@
                         <div class="mark">
                             </i>{{$error}}</span>
                         </div>
-                        @endforeach
-                        @else
+                     @endforeach
+                 @else
                         </i>{{$errors}}</span>
-                        @endif
-                        @endif
+                 @endif
+             @endif
             <table class="add_tab">
                 <tbody>
                 <tr>
@@ -76,9 +76,9 @@
                     </td>
                 </tr>
                 <tr>
-                    <th><i class="require">*</i>价格：</th>
+                    <th><i class="require">*</i>排序：</th>
                     <td>
-                        <input type="text" class="sm" name=cate_order"">
+                        <input type="text" class="sm" name="cate_order">
                     </td>
                 </tr>
 
