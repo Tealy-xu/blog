@@ -6,7 +6,7 @@ use Illuminate\Http\Request;
 
 use App\Http\Requests;
 
-class CategoryController extends CommonController
+class TestController extends CommonController
 {
     /**
      * Display a listing of the resource.
@@ -16,8 +16,7 @@ class CategoryController extends CommonController
     public function index()
     {
         //
-        echo 22;
-
+        echo 32423;
     }
 
     /**
@@ -28,7 +27,6 @@ class CategoryController extends CommonController
     public function create()
     {
         //
-        echo 33;
     }
 
     /**
@@ -40,7 +38,6 @@ class CategoryController extends CommonController
     public function store(Request $request)
     {
         //
-        echo 22;
     }
 
     /**
