@@ -108,6 +108,11 @@ class CategoryController extends CommonController
     public function edit($id)
     {
         //
+        $field = Category::find($id);
+        //添加分类
+        $data = Category::where('cate_pid', 0)->get();
+
+        return view('admin.category.edit',compact('field','data'));
     }
 
     /**
@@ -120,6 +125,13 @@ class CategoryController extends CommonController
     public function update(Request $request, $id)
     {
         //
+        $input = Input::except('_token','_method');
+        $res = Category::where('cate_id',$id)->update($input);
+        if($res){
+            return redirect('admin/category');
+        }else{
+            return back()->with('errors','分类修改失败，请重试！');
+        }
     }
 
     /**
