@@ -42,7 +42,8 @@ Route::group(['middleware' => ['web','admin.login'], 'prefix'=>'admin', 'namespa
 
     //资源路由
     Route::resource('category','CategoryController');
-//    Route::resource('test','TestController');
+    Route::resource('test','TestController');
+//    Route::get('cate/index','CategoryController@index');
     Route::post('cate/changeorder', 'CategoryController@changeOrder');
 
 });

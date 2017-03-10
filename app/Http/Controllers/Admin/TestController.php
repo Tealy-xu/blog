@@ -16,7 +16,7 @@ class TestController extends CommonController
     public function index()
     {
         //
-        echo 32423;
+        echo 'index';
     }
 
     /**
@@ -27,6 +27,7 @@ class TestController extends CommonController
     public function create()
     {
         //
+        echo 'create';
     }
 
     /**
@@ -35,10 +36,10 @@ class TestController extends CommonController
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
-    {
-        //
-    }
+//    public function store(Request $request)
+//    {
+//        //
+//    }
 
     /**
      * Display the specified resource.
@@ -49,6 +50,7 @@ class TestController extends CommonController
     public function show($id)
     {
         //
+        echo 'asdsa';
     }
 
     /**
