@@ -69,7 +69,7 @@
                         <td>{{$v->cate_view}}</td>
                         <td>
                             <a href="{{url('admin/category/'.$v->cate_id.'/edit')}}">修改</a>
-                            <a href="#">删除</a>
+                            <a href="javascript:;" onclick="delCate({{$v->cate_id}})">删除</a>
                         </td>
                     </tr>
                 @endforeach
@@ -120,15 +120,38 @@
                 {'_token':'{{csrf_token()}}',
                     'cate_order':cate_order,
                     'cate_id':cate_id },
-                function($data){
+                function(data){
                     if($data.status==0){
-                        layer.msg($data.msg,{icon:6});
+                        layer.msg(data.msg,{icon:6});
                     }else{
-                        layer.msg($data.msg,{icon:5});
+                        layer.msg(data.msg,{icon:5});
                     }
                 }
         );
     }
+
+    //删除分类
+    function delCate( cate_id ){
+        layer.confirm('确定要删除？',{
+            btn:['是','否']
+        }, function(){
+            $.post("{{url('admin/category/')}}/"+cate_id,{'_method':'delete','_token':'{{csrf_token()}}'},function(data){
+                    if(data.status==0){
+                        location.href = location.href;
+                        layer.msg(data.msg,{icon:6});
+                    }else{
+                        layer.msg(data.msg,{icon:5});
+                    }
+            });
+//            layer.msg(cate_id);
+        },function(){
+            layer.msg('',{
+                time:20000,
+                btn:['','']
+            });
+        });
+    }
+
 </script>
 
 @endsection

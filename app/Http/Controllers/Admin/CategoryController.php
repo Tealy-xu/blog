@@ -142,7 +142,18 @@ class CategoryController extends CommonController
      */
     public function destroy($id)
     {
-        //
+        $cate_pid = Category::where('cate_pid', $id)->get()->toArray();
+        if( !empty($cate_pid) ){
+            return $data = array('status'=>1, 'msg'=>'删除失败');
+        }
+        $res = Category::where('cate_id',$id)->delete();
+        if($res){
+            $data = array('status'=>0,'msg'=>'删除成功');
+        }else{
+            $data = array('status'=>1, 'msg'=>'删除失败');
+        }
+
+        return $data;
     }
 
 
