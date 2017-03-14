@@ -46,4 +46,6 @@ Route::group(['middleware' => ['web','admin.login'], 'prefix'=>'admin', 'namespa
 //    Route::get('cate/index','CategoryController@index');
     Route::post('cate/changeorder', 'CategoryController@changeOrder');
 
+    Route::any('upload', 'CommonController@upload');
+
 });
