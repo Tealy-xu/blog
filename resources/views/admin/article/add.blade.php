@@ -42,46 +42,63 @@
                     <th width="120"><i class="require">*</i>分类：</th>
                     <td>
                         <select name="cate_pid">
-                            <option value="">==顶级分类==</option>
                             @foreach($data as $d)
-                            <option value="{{$d->cate_id}}">{{$d->cate_name}}</option>
+                            <option value="{{$d->cate_id}}">{{$d->_cate_name}}</option>
                             @endforeach
                         </select>
                     </td>
                 </tr>
+
                 <tr>
-                    <th>分类名称：</th>
+                    <th><i class="require">*</i>文章标题：</th>
                     <td>
-                        <input type="text" name="cate_name">
-                        <span><i class="fa fa-exclamation-circle yellow"></i>这里是默认长度</span>
+                        <input type="text" class="lg" name="art_title">
                     </td>
                 </tr>
                 <tr>
-                    <th><i class="require">*</i>分类标题：</th>
+                    <th>编辑：</th>
                     <td>
-                        <input type="text" class="lg" name="cate_title">
-                        <span><i class="fa fa-exclamation-circle yellow"></i>分类标题必须填写</span>
+                        <input type="text" name="">
+                        <span><i class="fa fa-exclamation-circle yellow"></i></span>
+                    </td>
+                </tr>
+                <tr>
+                    <th>缩略图：</th>
+                    <td>
+                        <input type="text" name="art_thumb" size="50" >
                     </td>
                 </tr>
                 <tr>
                     <th>关键词：</th>
                     <td>
-                        <textarea name="cate_keywords"></textarea>
+                        <input type="text" class="lg" name="art_tag">
                     </td>
                 </tr>
                 <tr>
                     <th>描述：</th>
                     <td>
-                        <textarea name="cate_description"></textarea>
-                    </td>
-                </tr>
-                <tr>
-                    <th><i class="require">*</i>排序：</th>
-                    <td>
-                        <input type="text" class="sm" name="cate_order">
+                        <textarea name="art_description"></textarea>
                     </td>
                 </tr>
 
+                <tr>
+                    <th>文章内容：</th>
+                    <td>
+                        <script type="text/javascript" charset="utf-8" src="{{asset('resources/org/ueditor/ueditor.config.js')}}"></script>
+                        <script type="text/javascript" charset="utf-8" src="{{asset('resources/org/ueditor/ueditor.all.min.js')}}"> </script>
+                        <script type="text/javascript" charset="utf-8" src="{{asset('resources/org/ueditor/lang/zh-cn/zh-cn.js')}}"></script>
+                        <script id="editor" type="text/plain" name="art_content" style="width:860px;height:500px;"></script>
+                        <script type="text/javascript">
+                            var ue = UE.getEditor('editor');
+                        </script>
+                        <style>
+                            .edui-default{line-height: 28px;}
+                            div.edui-combox-body,div.edui-button-body,div.edui-splitbutton-body
+                            {overflow: hidden; height:20px;}
+                            div.edui-box{overflow: hidden; height:22px;}
+                        </style>
+                    </td>
+                </tr>
 
 
 
